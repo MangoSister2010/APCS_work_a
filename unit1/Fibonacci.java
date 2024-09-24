@@ -7,6 +7,8 @@ public class Fibonacci
         int b = 1; 
 
         System.out.println(a);
+        System.out.println(b);
+
        
         
 
