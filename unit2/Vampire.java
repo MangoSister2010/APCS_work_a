@@ -10,7 +10,8 @@ public class Vampire
         {
             return true; 
         }
-        return false; // Not a vampire 
+        else 
+            return false; // Not a vampire 
     }
 
     public static void testVampire(float hour, boolean awake, boolean expected)
@@ -28,13 +29,11 @@ public class Vampire
         }
     }
     
-    
-    
-    
-    
     public static void main(String[] args) //test
     {
         testVampire(5.0f, true, true); // f is used for float or double
-        testVampire(10.0f, false, false);
+        testVampire(10.0f, false, true);
+        testVampire(22.0f, false, false); 
+        testVampire(32.5f, true, true);
     }
 }

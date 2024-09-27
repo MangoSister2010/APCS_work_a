@@ -34,5 +34,7 @@ public class Diff21
     {
         testDiff21(19, 2);
         testDiff21(30, 18);
+        testDiff21(25, 8);
+        testDiff21(50, 58);
     }
 }
