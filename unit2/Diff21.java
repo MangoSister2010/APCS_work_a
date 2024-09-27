@@ -1,6 +1,6 @@
 public class Diff21 
 {
-    public static int diff21(int n) 
+    public static int Diff21(int n) 
     {
         if (n > 21) 
         {
@@ -12,10 +12,27 @@ public class Diff21
             return 21 - n; 
         }
     }
-
+    
+    public static void testDiff21(int n, int expected)
+    {
+        int result = Diff21(n);
+        System.out.println(" Number: " + n + " Expected: " + expected + " Result: " + result );
+        
+        if(result==expected)
+        {
+            System.out.println("Correct");
+        }
+        else
+        {
+            System.out.println("Incorrect"); 
+        }
+    }
+    
+    
+    
     public static void main(String[] args) //test
     {
-        System.out.println(diff21(19));
-        System.out.println(diff21(30));
+        testDiff21(19, 2);
+        testDiff21(30, 18);
     }
 }

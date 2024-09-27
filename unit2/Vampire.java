@@ -13,9 +13,28 @@ public class Vampire
         return false; // Not a vampire 
     }
 
+    public static void testVampire(float hour, boolean awake, boolean expected)
+    {
+        boolean result = Vampire(hour, awake);
+        System.out.println("  Hour:  " + hour + "  Awake:  " + awake +  "  Expected:  " + expected + "  Results:  " + result);
+        
+        if(result==expected)
+        {
+            System.out.println("Correct");
+        }
+        else
+        {
+            System.out.println("Incorrect");
+        }
+    }
+    
+    
+    
+    
+    
     public static void main(String[] args) //test
     {
-        System.out.println(Vampire(5.0f, true)); // f is used for float or double
-        System.out.println(Vampire(10.0f, false));
+        testVampire(5.0f, true, true); // f is used for float or double
+        testVampire(10.0f, false, false);
     }
 }
