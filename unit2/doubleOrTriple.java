@@ -31,5 +31,6 @@ public class DoubleOrTriple
     {
         testDoubleOrTriple(4, 8);
         testDoubleOrTriple(5, 15); 
+        testDoubleOrTriple()
     }
 }
