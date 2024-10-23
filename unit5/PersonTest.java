@@ -7,10 +7,7 @@ public class PersonTest
 
         person claire = new person("Claire");
 
-        // error: private access
-        //drkessner.name = "Dr. Kessner";
-       
-        //drkessner.setName("Dr. Kessner");        
+            
         claire.greeting();
 
         System.out.println("This person's name is " + claire.getName());
