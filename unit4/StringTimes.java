@@ -6,7 +6,7 @@ public class StringTimes
         
         for (int i=0; i<n; i++) 
           {
-            result = result + str;  // could use += here
+            result = result + str;  
           }
         
         return result;
@@ -30,7 +30,7 @@ public class StringTimes
      public static void main(String[] args) 
      {
         testStringTimes("Hi", 3, "HiHiHi");
-        testStringTimes("Hi", 2, "HiHi");   // Expected "HiHi"
+        testStringTimes("Hi", 2, "HiHi");   
         testStringTimes("Hello", 0, "");
      }
     

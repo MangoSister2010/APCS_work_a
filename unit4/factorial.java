@@ -17,22 +17,6 @@ public class factorial
     }
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
    public static void testFactorial(int n, int expected)
     {
         int result = factorial(n); 
