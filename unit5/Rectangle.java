@@ -1,23 +1,39 @@
 public class Rectangle
 {
     
-    private int x;
-    private int y;
+    private int base;
+    private int height;
     
-    public Rectangle(int xIn, int yIn)
+    public Rectangle(int baseIn, int heightIn)
     {
-        x = xIn;
-        y = yIn;
+        base = baseIn;
+        height = heightIn;
     }
-
+    
     public int area()
     {
-        return x*y;
+        return base*height;
     }
 
     public int perimeter()
     {
-        return 2*(x + y);
+        return 2*(base + height);
         
+    }
+    
+    public double diagonal() 
+    {
+        return Math.sqrt(base * base + height * height);
+    }
+    
+    //accessor 
+    public int getBase()
+    {
+        return base; 
+    }
+    
+    public int getHeight()
+    {
+        return height; 
     }
 }

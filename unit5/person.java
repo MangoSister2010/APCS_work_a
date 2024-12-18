@@ -1,36 +1,33 @@
-public class person
+public class Person
 {
-    // constructor function
-
-    public person(String nameIn)
+    private String name;
+    private int numberOfPets;
+    
+    public Person(String nameIn, int petIn)
     {
         name = nameIn;
+        numberOfPets = petIn;
     }
 
+     public String getName()
+    {
+        return name;
+    }
+    
+    public int getNumberOfPets()
+    {
+        return numberOfPets;
+    }
+    
     public void greeting()
     {
         System.out.println("Hello, my name is " + name);
         System.out.println("and I have this many pets: " + numberOfPets);
     }
-
-    // (public) accessor functions
-    // getter (accessor) / setter (mutator)
-
-    public void setName(String newName)
-    {
-        name = newName;  
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    // for us:  all member variables will be private
-    private String name;
-
-    // static == shared by all objects of the class
-    // final == variable cannot be changed (after initialization)
-    // e.g Math.PI and Math.E (public static final)
-    private static final int numberOfPets = 1;
+    
+    
 }
+
+
+
+

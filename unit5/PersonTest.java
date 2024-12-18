@@ -1,19 +1,13 @@
-public class PersonTest 
-{
-    public static void main(String[] args)
+
+public class PersonTest {
+    public static void main(String[] args) 
     {
-        System.out.println("Hello, Person!");
+        Person claire = new Person("Claire", 2); 
+        Person eva = new Person("Eva", 1);       
 
-
-        person claire = new person("Claire");
-
-            
+        
         claire.greeting();
-
-        System.out.println("This person's name is " + claire.getName());
-
-
-        person eva = new person("Eva");
         eva.greeting();
+
     }
 }
