@@ -15,6 +15,8 @@ public class BirdGame extends PApplet
     float lastPipeX = width; 
     int countdownStartTime;
 
+    int score = 0;
+
     public void settings() 
     {
         size(500, 700);  // Set the size of the window
@@ -67,6 +69,11 @@ public class BirdGame extends PApplet
         // Update and display the bird
         bird.update();
         bird.display();
+        
+        if (bird.y > height)
+        {
+        gameOver = true;
+        }
 
         // Update and display pipes
         for (int i = pipes.size() - 1; i >= 0; i--) 
@@ -84,6 +91,11 @@ public class BirdGame extends PApplet
             {
                 gameOver = true;
             } 
+            
+            else if (pipe.passed(bird))
+            {
+                score++;
+            }
         }
         
         if(frameCount % spawnRate == 0)
@@ -92,6 +104,12 @@ public class BirdGame extends PApplet
             pipes.add(new Pipe(this, pipeX));
             lastPipeX = pipeX; 
         }
+        
+        fill(0);
+        textAlign(LEFT, TOP);
+        textSize(32);
+        text("Score: " + score, 20, 20);
+        
         frameCount++;
     }
 
@@ -100,7 +118,7 @@ public class BirdGame extends PApplet
     // Listen for spacebar to make the bird go up
     public void keyPressed() 
     {
-        if (key == ' ') 
+        if (key == ' ')  
         {
             bird.up();
         }
@@ -112,7 +130,8 @@ public class BirdGame extends PApplet
     
     void restartGame()
     {
-        gameOver = false; 
+        gameOver = false;
+        score = 0;
         countdown = 3;
         pipes.clear();
         bird = new Bird(this, birdColor);

@@ -5,7 +5,8 @@ public class Pipe
     PApplet p; 
     float x, w, h;
     float gap = 150;
-    float speed = 3; 
+    float speed = 3;
+    boolean hasPassed = false;
 
     public Pipe(PApplet p, float xPos) 
     {
@@ -44,6 +45,16 @@ public class Pipe
             }
         }
          return false; 
+    }
+    
+    public boolean passed(Bird bird)
+    {
+        if (bird.x > x + w && !hasPassed) 
+        {
+            hasPassed = true;  
+            return true;
+        }
+        return false;
     }
 
 }
