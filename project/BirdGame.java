@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.sound.*;
 import java.util.ArrayList;
 
 public class BirdGame extends PApplet 
@@ -14,6 +15,10 @@ public class BirdGame extends PApplet
     int birdColor; 
     float lastPipeX = width; 
     int countdownStartTime;
+    
+    SoundFile background; 
+    SoundFile hit;
+    SoundFile flap;
 
     int score = 0;
 
@@ -36,6 +41,10 @@ public class BirdGame extends PApplet
             pipes.add(new Pipe(this, lastPipeX));
             lastPipeX += width/3; 
         }
+        
+        flap = new SoundFile(this, "flap.wav");
+        hit = new SoundFile(this, "hit.wav");
+        background = new SoundFile(this, "background.wav");
         
         background(135, 206, 235);  // Sky blue background
     }
@@ -90,6 +99,7 @@ public class BirdGame extends PApplet
             if (pipe.hits(bird)) 
             {
                 gameOver = true;
+                hit.play();
             } 
             
             else if (pipe.passed(bird))
