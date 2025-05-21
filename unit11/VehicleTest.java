@@ -35,6 +35,31 @@ class Unicycle implements Vehicle
    public boolean isHumanPowered() {return true;}
 }
 
+class VehicleStats
+{
+    static int totalWheels(ArrayList<Vehicle> vehicles)
+    {
+        int total = 0; 
+        for(Vehicle v: vehicles)
+        {
+            total += v.wheelCount();
+        }
+        return total;
+    }
+    static ArrayList<Vehicle>humanPoweredVehicles(ArrayList<Vehicle> vehicles)
+    {
+        ArrayList<Vehicle>humanPowered = new ArrayList<>();
+        for(Vehicle v:vehicles)
+        {
+            if(v.isHumanPowered())
+            {
+                humanPowered.add(v);
+            }
+        }
+        return humanPowered;
+    }
+}
+
 //Vehicle Test Class
 public class VehicleTest
 {
@@ -46,32 +71,32 @@ public class VehicleTest
         {
             System.out.println(v.name() + " Wheels: " + v.wheelCount() + " HumanPowered: " + v.isHumanPowered());
         }
-    }
-}
-
-//Vehicle Stats Class 
-class VehicleStats
-{
-    static int totalWheels(ArrayList<Vehicle> vehicles)
-    {
-        int total = 0; 
-        for(Vehicle  v: vehicles)
+        
+        int total = VehicleStats.totalWheels(vehicles);
+        if(total == 9)
         {
-            total += v.wheelCount();
+            System.out.println("Total Wheels Test: Pass");
         }
-        return total;
-    }
-    static ArrayList<Vehicle>humanPoweredVehicles(ArrayList<Vehicle> vehicles)
-    {
-             ArrayList<Vehicle>humanPowered = new ArrayList<>();
-        for(Vehicle v:vehicles)
+        else
         {
-            if(v.isHumanPowered())
-            {
-                humanPowered.add(v);
-            }
+            System.out.println("Total Wheels Test: Fail ( Got" + total + ")");
         }
-        return humanPowered;
+        
+        ArrayList<Vehicle> humanPowered = VehicleStats.humanPoweredVehicles(vehicles);
+        if(humanPowered.size() == 2 && humanPowered.get(0).name().equals("Bicycle") && humanPowered.get(1).name().equals("Unicycle"))
+        {
+            System.out.println("Human Powered Vehicles Test: Pass");
+        }
+        else
+        {
+            System.out.println("Human Powered Vehicles Test: Fail");
+        }
+        
+        System.out.print("Human Powered Vehicles: ");
+        for (Vehicle v: humanPowered)
+        {
+            System.out.print(v.name()+ " ");
+        }
+        System.out.println();
     }
-   
 }
