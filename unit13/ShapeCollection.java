@@ -77,6 +77,22 @@ class ShapeCollection
     
     public static void main(String[] args)
     {
-        ShapeCo
+        ShapeCollection collection = new ShapeCollection();
+        
+        collection.addShape(new Shape("Triangle", 3));
+        collection.addShape(new Shape("Square", 4));
+        collection.addShape(new Shape("Pentagon", 5));
+        collection.addShape(new Shape("Hexagon", 6));
+        
+        System.out.println("Sides of Square: " + collection.numberOfSides("square"));
+        
+        System.out.println("Average number of sides: " + collection.averageNumberOfSides());
+        
+        ArrayList<Shape> evenShapes = collection.shapesWithEvenSides();
+        System.out.println("Shapes with even number of sides:");
+        for(Shape shape: evenShapes)
+        {
+            System.out.println("-" + shape.getName() + ": " + shape.getNumberOfSides() + " sides");
+        }
     }
 }
